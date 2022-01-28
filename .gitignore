@@ -1,0 +1,15 @@
+credentials.json
+.idea
+.idea/*
+geckodriver.log
+inscription_assises_nationales_yfc_france_a_nantes.csv
+Nunito-Bold.ttf
+Nunito-Regular.ttf
+Nunito-ExtraBold.ttf
+empty_badge.png
+*.pdf
+output
+output/*
+test2.pdf
+*.csv
+*.csv#
