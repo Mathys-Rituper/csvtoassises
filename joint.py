@@ -1,5 +1,5 @@
 import pandas as pd
-from mail import *
+from protonmail import *
 import json
 import time
 
@@ -36,7 +36,7 @@ participants = pd.read_csv('assises_nationales_yfc_france_inscription_4.csv')
 logeureuses = pd.read_csv('infos-logeureuses.csv')
 jointure = pd.read_csv('repartition.csv').reset_index()
 
-# 1st joint : participant data + association data
+# 1st joint : models data + association data
 participants_jointure = pd.merge(participants, jointure, on=["email"], suffixes=["_participant", "_jointure"],
                                  how="left")
 
@@ -52,7 +52,7 @@ def send_email_logeureuses():
         #exclude virtual hosts
         if type(email) == str and email != "salle1@mdp.fr" and email != "salle2@mdp.fr" and email != "salle3@mdp.fr" and email!="osmix@protonmail.com":
 
-            # find participant data for each host
+            # find models data for each host
             logeureuse_rows = participants_logeureuses.loc[participants_logeureuses["email_logeureuse"] == email]
             rows = logeureuse_rows.to_dict(orient="records")
 

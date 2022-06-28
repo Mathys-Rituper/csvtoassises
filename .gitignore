@@ -12,4 +12,7 @@ output
 output/*
 test2.pdf
 *.csv
-*.csv#
+*.csv
+*.env
+.env
+data/*

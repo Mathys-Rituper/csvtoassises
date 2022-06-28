@@ -1,0 +1,6 @@
+selenium~=4.2.0
+pyvirtualdisplay
+pillow~=9.1.1
+pandas~=1.4.2
+fpdf
+python-dotenv

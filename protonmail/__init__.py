@@ -10,25 +10,27 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-# ProtonMail does not provide a free API... Therefore, scrapping time, this is the whole purpose of the module :/
-
 def connect_driver(email, password):
+    """
+    Connect to ProtonMail inbox.
+
+    :param email: the email address of the account
+    :param password: the password of the account
+    :return driver: webdriver for protonmail inbox
+    """
     try:
-        # display = Display(visible=0, size=(1920, 1080))   # Used to create a virtual display to be able to run selenium in a terminal without GUI
-        # display.start()
         print("Initiating webdriver...")
         driver = webdriver.Firefox()
         print("Connecting to ProtonMail client...")
         driver.get('https://mail.protonmail.com/login')
         sleep(5)
-        driver.find_element_by_id('username').send_keys(email)
-        driver.find_element_by_id('password').send_keys(password)
-        driver.find_element_by_class_name("button-henlo").click()
+        driver.find_element(By.ID, "username").send_keys(email)
+        driver.find_element(By.id, "password").send_keys(password)
+        driver.find_elements(By.CLASS_NAME, "button-henlo")[0].click()
         print("clicked on login")
         WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.CLASS_NAME, "button-large")))
         print(f"Successful connexion to {email}.")
-        # return (driver,display)
-        return (driver)
+        return driver
     except Exception as err:
         driver.quit()
         # display.stop()
@@ -38,12 +40,18 @@ def connect_driver(email, password):
         del err
         del status
         del driver
-        # del display
         raise err
 
 
-# def send_email(email_to, email_subject, email_message,driver,display):
 def send_email(email_to, email_subject, email_message, driver):
+    """
+    Send an email to a specific email address.
+
+    :param email_to: the email of the recipient
+    :param email_subject: the subject of the email
+    :param email_message: the message of the email in plain text
+    :param driver: the driver for protonmail inbox
+    """
     try:
         print(f"Sending email to {email_to}...")
         driver.find_element_by_class_name("button-large").click()
@@ -58,14 +66,13 @@ def send_email(email_to, email_subject, email_message, driver):
         driver.switch_to_active_element().send_keys(email_message[floor((length / 2)):length - 1])
         sleep(1)
         driver.find_element_by_class_name("composer-send-button").click()
-        print('E-mail sent.')
+        print('E-protonmail sent.')
         sleep(3)
         del email_subject
         del email_message
     except Exception as err:
         driver.quit()
-        # display.stop()
-        print('\nError Occurred while sending e-mail!!')
+        print('\nError Occurred while sending e-protonmail!!')
         print(f"\nDid not send email {email_subject} to {email_to}.")
         status = (str(err), 'Error Origin: Proton Mail Script')
         print(status)
@@ -73,12 +80,13 @@ def send_email(email_to, email_subject, email_message, driver):
         del status
         del driver
         raise err
-        # del display
 
 
-# def kill_driver(driver ,display):
 def kill_driver(driver):
+    """
+    Kill the driver.
+
+    :param driver: the driver for protonmail inbox to be killed
+    """
     driver.quit()
-    # display.stop()
     del driver
-    # del display
