@@ -17,22 +17,22 @@ class DataHandler:
 
         self.PARTICIPANT_ID = "#"
         self.PARTICIPANT_NAME = "pseudo"
-        self.PARTICIPANT_LOCALGROUP = "localgroup"
+        self.PARTICIPANT_LOCALGROUP = "GL"
         self.PARTICIPANT_PRONOUNS = "pronoms"
-        self.PARTICIPANT_PHONE = "phone"
-        self.PARTICIPANT_EMAIL = "email"
+        self.PARTICIPANT_PHONE = "tel"
+        self.PARTICIPANT_EMAIL = "mail"
 
         self.ACCOMODATION_ID = "id"
         self.ACCOMODATION_HOSTNAME = "name"
         self.ACCOMODATION_HOSTEMAIL = "mail"
         self.ACCOMODATION_HOSTPHONE = "phone"
-        self.ACCOMODATION_ADDRESS = "address"
+        self.ACCOMODATION_ADDRESS = "adresse"
 
-        self.STAY_PARTICIPANT_ID = ""
-        self.STAY_ACCOMODATION_ID = ""
-        self.STAY_START = ""
-        self.STAY_END = ""
-        self.STAY_BED_TYPE = ""
+        self.STAY_PARTICIPANT_ID = "id_participant"
+        self.STAY_ACCOMODATION_ID = "id_logeureuse"
+        self.STAY_START = "jour_arrivee"
+        self.STAY_END = "jour_depart"
+        self.STAY_BED_TYPE = "type_couchage"
 
         self.participants = []
         self.accomodations = []

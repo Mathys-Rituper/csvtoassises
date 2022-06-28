@@ -92,7 +92,7 @@ if __name__ == '__main__':
     print("email client initiated.")
 
     print("Sending test email...")
-    mailer.send_email("fffgrenoble@riseup.net", "Test email", "test message")
+    mailer.send_email("test@gmail.com", "Test email", "test message")
     print("Test email sent.")
 
     mailer.close()

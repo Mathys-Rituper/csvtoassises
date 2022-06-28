@@ -20,11 +20,11 @@ class Stay:
         Return a string describing the stay to the participant.
         :return: string: the description of the stay
         """
-        return f"- Du {datetime.datetime.strftime(self.start, '%d/%m/%Y')} au {datetime.datetime.strftime(self.end, '%d/%m/%Y')} : chez {self.accomodation.host_name} ({self.accomodation.host_phone}/{self.accomodation.host_email}), au {self.accomodation.address}, type de couchage : {self.sleeping_type}"
+        return f"- Du {self.start} au {self.end} : chez {self.accomodation.host_name} ({self.accomodation.host_phone}/{self.accomodation.host_email}), au {self.accomodation.address}, type de couchage : {self.sleeping_type}"
 
     def str_to_host(self):
         """
         Return a string describing the stay to the host.
         :return: string: the description of the stay
         """
-        return f"- {self.participant.name} ({self.participant.email} / {self.participant.phone}) du groupe local de {self.participant.localgroup}, du {datetime.datetime.strftime(self.start, '%d/%m/%Y')} au {datetime.datetime.strftime(self.end, '%d/%m/%Y')}, type de couchage : {self.sleeping_type}"
+        return f"- {self.participant.name} ({self.participant.email} / {self.participant.phone}) du groupe local de {self.participant.localgroup}, du {self.start} au {self.end}, type de couchage : {self.sleeping_type}"

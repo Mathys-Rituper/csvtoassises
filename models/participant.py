@@ -31,4 +31,9 @@ class Participant:
             message = "Voici le(s) logement(s) qui t'a(ont) été attribué(s) pour ta venue :\n"
             for stay in self.stays:
                 message = message + stay.str_to_participant() + '\n'
+                message = message + "Les personnes suivantes seront logées là bas en même temps que vous :\n"
+                for stay2 in stay.accomodation.stays:
+                    if stay2.participant.id != self.id :
+                        message = message + f"{stay2.participant.name} du groupe local de {stay2.participant.localgroup} \n"
             message += "Merci de contacter rapidement votre/vos logeur.euse(s) pour vous présenter et vous assurer que tout est ok de vôtre côté et du leur. En cas de problème, contacte-nous !" + '\n'
+            return message

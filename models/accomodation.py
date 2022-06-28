@@ -42,3 +42,4 @@ class Accomodation:
                            "néanmoins n'hésitez pas à prendre l'initative de les contacter sans attendre si vous le " \
                            "souhaitez ! En cas de problème, merci de nous contacter rapidement pour que nous " \
                            "puissions trouver des solutions ensemble.\n"
+            return message
